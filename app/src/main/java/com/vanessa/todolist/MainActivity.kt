@@ -7,7 +7,10 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         //val btnAfegir = findViewById<Button>(R.id.btnAfegir)
         val btnAfegir = findViewById<FloatingActionButton>(R.id.btnAfegir)
         val llistaProductes = findViewById<LinearLayout>(R.id.llistaProductes)
+
+
+        // Funció que genera un retard en el programa sense congelar la UI.
+        suspend fun espera(temps: Long) {
+            delay(temps)
+        }
 
         btnAfegir.setOnClickListener {
             val text = inputProducte.text.toString()
@@ -30,22 +39,25 @@ class MainActivity : AppCompatActivity() {
                 val checkBox = CheckBox(this)
                 checkBox.text = text
 
-                // Botó eliminar
-                val btnEliminar = Button(this)
-                btnEliminar.text = "X"
-                btnEliminar.setOnClickListener {
-                    llistaProductes.removeView(fila)
-                }
-
                 // Afegim els components a la fila
                 fila.addView(checkBox)
-                fila.addView(btnEliminar)
 
                 // Afegim la fila a la llista
                 llistaProductes.addView(fila)
 
                 inputProducte.text.clear()
+
+                // Botó afegir a completacions.
+                checkBox.setOnClickListener {
+                    // Utilitzem una corutina per generar un delay
+                    lifecycleScope.launch {
+                        espera(1000)
+                        llistaProductes.removeView(fila)
+                    }
+                }
             }
-        }
+            }
     }
 }
+
+

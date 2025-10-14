@@ -21,14 +21,9 @@ class MainActivity : AppCompatActivity() {
         //val btnAfegir = findViewById<Button>(R.id.btnAfegir)
         val btnAfegir = findViewById<FloatingActionButton>(R.id.btnAfegir)
         val llistaProductes = findViewById<LinearLayout>(R.id.llistaProductes)
+        val btnEnter = findViewById<Button>(R.id.btnEnter)
 
-
-        // Funció que genera un retard en el programa sense congelar la UI.
-        suspend fun espera(temps: Long) {
-            delay(temps)
-        }
-
-        btnAfegir.setOnClickListener {
+        btnEnter.setOnClickListener {
             val text = inputProducte.text.toString()
             if (text.isNotEmpty()) {
                 // Layout horitzontal
@@ -51,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                 checkBox.setOnClickListener {
                     // Utilitzem una corutina per generar un delay
                     lifecycleScope.launch {
-                        espera(1000)
+                        delay(1000)
                         llistaProductes.removeView(fila)
                     }
                 }

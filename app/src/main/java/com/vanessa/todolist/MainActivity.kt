@@ -27,14 +27,15 @@ class MainActivity : AppCompatActivity() {
         val llistaProductes = findViewById<LinearLayout>(R.id.llistaProductes)
         val btnEnter = findViewById<Button>(R.id.btnEnter)
         val carpetesProductes = mutableListOf<String>()
-        val fila = LinearLayout(this)
         var etNouMissatge = findViewById<EditText>(R.id.etNouMissatge)
         // Inicialitzem la connexió amb la BD
         var baseDeDades: DatabaseReference = FirebaseDatabase.getInstance().reference
 
         btnEnter.setOnClickListener {
             val text = inputProducte.text.toString()
+
             if (text.isNotEmpty()) {
+                val fila = LinearLayout(this)
                 // Layout horitzontal
                 fila.orientation = LinearLayout.HORIZONTAL
 
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 val checkBox = CheckBox(this)
 
                 // Llegeix el String situat a l'input.
-                val nouText = inputProducte.text.toString()
+                // val nouText = inputProducte.text.toString()
 
                 inputProducte.text.clear()
 
@@ -63,10 +64,10 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 //  Donem el valor del node "missatge"
-                baseDeDades.child("missatge").setValue(nouText)
+                // baseDeDades.child("missatge").setValue(nouText)
             }
 
-        /*
+            /*
             baseDeDades.child("missatge").get().addOnSuccessListener {
                 val text = it.value?.toString() ?: "(sense text)"
                 etNouMissatge.setText(text)
@@ -77,11 +78,12 @@ class MainActivity : AppCompatActivity() {
         */
 
             btnAfegir.setOnClickListener {
-            val popup = PopupMenu(this, btnAfegir)
-            popup.menu.add("Afegir carpeta")
-            popup.menu.add("Revisar llista complerta")
+                val popup = PopupMenu(this, btnAfegir)
+                popup.menu.add("Afegir carpeta")
+                popup.menu.add("Revisar llista complerta")
 
 
+            }
         }
     }
 }

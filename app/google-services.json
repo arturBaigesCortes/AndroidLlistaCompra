@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "262739629395",
+    "firebase_url": "https://llistatcompra-ad413-default-rtdb.firebaseio.com",
+    "project_id": "llistatcompra-ad413",
+    "storage_bucket": "llistatcompra-ad413.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262739629395:android:b0ba6807972458e2f03da6",
+        "android_client_info": {
+          "package_name": "com.joel.llistatCompra"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYUiBWxvZLnbD5DbZv2fxsNmZqfbRB0gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:262739629395:android:a4affd9118961c24f03da6",
+        "android_client_info": {
+          "package_name": "com.vanessa.todolist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYUiBWxvZLnbD5DbZv2fxsNmZqfbRB0gw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

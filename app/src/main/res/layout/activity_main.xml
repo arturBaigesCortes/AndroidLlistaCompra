@@ -26,7 +26,8 @@
             android:id="@+id/inputProducte"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.7" />
+            android:layout_weight="0.7"
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnEnter"
@@ -74,5 +75,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+    <EditText
+        android:id="@+id/etNouMissatge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAfegir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scroll" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import android.view.MenuItem;
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,32 @@ class MainActivity : AppCompatActivity() {
         var etNouMissatge = findViewById<EditText>(R.id.etNouMissatge)
         // Inicialitzem la connexió amb la BD
         var baseDeDades: DatabaseReference = FirebaseDatabase.getInstance().reference
+
+        btnAfegir.setOnClickListener {
+
+            val popup = PopupMenu(this@MainActivity, btnAfegir.rootView.findViewById(R.id.btnAfegir))
+
+            popup.menuInflater.inflate(R.menu.popup_menu, popup.menu)
+
+
+
+
+//                popup.setOnMenuItemClickListener { menuItem ->
+//                    // Toast message on menu item clicked
+//                    Toast.makeText(
+//                        this@MainActivity,
+//                        "You Clicked " + menuItem.title,
+//                        Toast.LENGTH_SHORT
+//                    ).show()
+//                    true
+//
+//
+//                }
+
+            popup.show()
+
+
+        }
 
         btnEnter.setOnClickListener {
             val text = inputProducte.text.toString()
@@ -77,13 +105,10 @@ class MainActivity : AppCompatActivity() {
             }
         */
 
-            btnAfegir.setOnClickListener {
-                val popup = PopupMenu(this, btnAfegir)
-                popup.menu.add("Afegir carpeta")
-                popup.menu.add("Revisar llista complerta")
 
 
-            }
+
+
         }
     }
 }
